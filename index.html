@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="calc-body">
+    <header>
+      <div>
+        <h1>R.E.G</h1>
+        <p><em>clc-2022br</em></p>
+      </div>
+      <div id="battery"></div>
+    </header>
+    <section id="numeros">
+      <div id="show-operations"></div>
+      <input type="text" name="numero" id="numero" autocomplete="off" placeholder="0" value="" disabled>
+    </section>
+    <section id="buttons">
+      <button class="clear">C</button>
+      <section>
+        <button class="operations" data-value="%">%</button>
+        <button class="operations" data-value="pot2"><em>x</em><sup>2</sup></button>
+        <button class="operations" data-value="sqrt">&Sqrt;<em>x</em></button>
+        <button class="operations" data-value='/'>&div;</button>
+      </section>
+      <section>
+        <button class="numbers" data-value="7">7</button>
+        <button class="numbers" data-value="8">8</button>
+        <button class="numbers" data-value="9">9</button>
+        <button class="operations" data-value="x">x</button>
+      </section>
+      <section>
+        <button class="numbers" data-value="4">4</button>
+        <button class="numbers" data-value="5">5</button>
+        <button class="numbers" data-value="6">6</button>
+        <button class="operations" data-value="-">-</button>
+      </section>
+      <section>
+        <button class="numbers" data-value="1">1</button>
+        <button class="numbers" data-value="2">2</button>
+        <button class="numbers" data-value="3">3</button>
+        <button class="operations" data-value="+">+</button>
+      </section>
+      <section>
+        <button class="negative" data-value="+/-">+/-</button>
+        <button class="numbers" data-value="0">0</button>
+        <button class="period">.</button>
+        <button class="result operations" data-value="=">=</button>
+      </section>
+    </div>
+  </section>
+</body>
+</html>

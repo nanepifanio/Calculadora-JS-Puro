@@ -1,0 +1,147 @@
+/* Global Style */
+
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #008080;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+h1 {
+  font: italic bold 1.5rem "Courier New", Courier, monospace;
+}
+
+#numeros {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 0;
+  padding-right: 10px;
+  width: 100%;
+  height: 80px;
+  background-color: #acacac;
+  border-style: inset;
+  border-radius: 15px;
+  font-size: 0.875rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: right;
+}
+
+#show-operations {
+  margin-right: 7px;
+  font-size: 0.625rem;
+  text-align: right;
+}
+
+input {
+  display: block;
+  outline: none;
+  text-align: right;
+  background-color: inherit;
+  border: none;
+  font-size: 3rem;
+  color: #000;
+}
+
+input::placeholder {
+  color: #000;
+}
+
+/*
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  // Tira as setas do input number
+  -webkit-appearance: none;
+  margin: 0px 10px 0px 0px;
+}
+*/
+
+sup {
+  font-size: 0.75rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Calculator */
+
+#battery {
+  width: 50px;
+  height: 20px;
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+#calc-body {
+  max-width: 375px;
+  background-color: #e4e4e4;
+  margin: 80px auto;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px 15px #0000002f;
+}
+
+#buttons {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+#buttons section {
+  display: flex;
+  justify-content: space-between;
+}
+
+#buttons button {
+  border-radius: 10px;
+  font-size: 1.125rem;
+  margin-top: 10px;
+  border: none;
+}
+
+.clear {
+  width: 100%;
+  background-color: #ff6347;
+  padding: 15px;
+}
+
+#buttons section button {
+  width: 50px;
+  height: 50px;
+}
+
+.numbers {
+  background-color: #808080;
+}
+
+.operations {
+  background-color: #f5f5f5;
+}
+
+.result {
+  background-color: #5c5ce9;
+}
+
+.negative,
+.period {
+  background-color: #808080;
+}
+
+.operations:hover,
+.numbers:hover,
+.result:hover,
+.clear:hover,
+.negative:hover,
+.period:hover {
+  box-shadow: 1px 1px 5px #0000004f;
+}
