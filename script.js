@@ -18,11 +18,16 @@ const clearArrays = () => {
 };
 
 const showOpOnScreen = (nArr, opArr) => {
-  const showInPlaceholder = (result) =>
-    (inpt.placeholder = (+result).toLocaleString("pt-br", {
-      style: "decimal",
-      minimumIntegerDigits: 1,
-    }));
+  const showInPlaceholder = (result) => {
+    if (+result) {
+      inpt.placeholder = (+result).toLocaleString("pt-br", {
+        style: "decimal",
+        minimumIntegerDigits: 1,
+      });
+    } else {
+      inpt.placeholder = result;
+    }
+  };
 
   const showMiniOperations = (exp) => (miniOp.innerText = exp);
 
@@ -39,7 +44,6 @@ const showOpOnScreen = (nArr, opArr) => {
       nArr.splice(0, 1);
       nArr.reverse();
       resetAfterOp = true;
-      console.log(numbersArray, operationArray);
     } else {
       showInPlaceholder(nArr[2]);
       if (nArr[2] === "Impossível" || nArr[2] === "Indeterminado") {
@@ -52,7 +56,6 @@ const showOpOnScreen = (nArr, opArr) => {
         showMiniOperations(`${nArr[2]} ${opArr[0]}`);
         nArr.splice(0, 2);
         resetAfterOp = true;
-        console.log(numbersArray, operationArray);
       }
     }
   }
