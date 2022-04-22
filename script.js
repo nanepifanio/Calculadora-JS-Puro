@@ -118,45 +118,47 @@ const handleOperation = (el) => {
 
   resetAfterOp = false;
 
-  if (!numbersArray.length && !operationArray.length && inpt.value) {
-    fillNumbersArray(inpt.value);
-    fillOpArray(el.dataset.value);
-    showOpOnScreen(numbersArray, operationArray);
-  } else {
-    if (
-      el.dataset.value.match(/[-+x/=]/) &&
-      numbersArray.length === 1 &&
-      operationArray.length === 1 &&
-      !inpt.value
-    ) {
-      operationArray.length = 0;
+  if (el.dataset.value) {
+    if (!numbersArray.length && !operationArray.length && inpt.value) {
+      fillNumbersArray(inpt.value);
       fillOpArray(el.dataset.value);
       showOpOnScreen(numbersArray, operationArray);
     } else {
-      if (!inpt.value && !numbersArray.length) {
-        fillNumbersArray();
+      if (
+        el.dataset.value.match(/[-+x/=]/) &&
+        numbersArray.length === 1 &&
+        operationArray.length === 1 &&
+        !inpt.value
+      ) {
+        operationArray.length = 0;
         fillOpArray(el.dataset.value);
-      } else if (!inpt.value) {
-        if (operationArray.includes("=")) {
-          if (el.dataset.value === "=") {
-            operations(numbersArray, operationArray[0]);
+        showOpOnScreen(numbersArray, operationArray);
+      } else {
+        if (!inpt.value && !numbersArray.length) {
+          fillNumbersArray();
+          fillOpArray(el.dataset.value);
+        } else if (!inpt.value) {
+          if (operationArray.includes("=")) {
+            if (el.dataset.value === "=") {
+              operations(numbersArray, operationArray[0]);
+              showOpOnScreen(numbersArray, operationArray);
+            } else {
+              operationArray.pop();
+              numbersArray.pop();
+              operationArray[0] = el.dataset.value;
+              showOpOnScreen(numbersArray, operationArray);
+            }
+          }
+        } else {
+          if (operationArray[0] === "=") {
+            numbersArray[0] = inpt.value;
             showOpOnScreen(numbersArray, operationArray);
           } else {
-            operationArray.pop();
-            numbersArray.pop();
-            operationArray[0] = el.dataset.value;
+            fillNumbersArray(inpt.value);
+            fillOpArray(el.dataset.value);
+            operations(numbersArray, operationArray[0]);
             showOpOnScreen(numbersArray, operationArray);
           }
-        }
-      } else {
-        if (operationArray[0] === "=") {
-          numbersArray[0] = inpt.value;
-          showOpOnScreen(numbersArray, operationArray);
-        } else {
-          fillNumbersArray(inpt.value);
-          fillOpArray(el.dataset.value);
-          operations(numbersArray, operationArray[0]);
-          showOpOnScreen(numbersArray, operationArray);
         }
       }
     }
